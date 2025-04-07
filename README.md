@@ -5,7 +5,7 @@
 </h2>
 <br>
 <h2 align="center">
-   INFORMATION SECURITY
+   CRYPTOGRAPHY AND CYBER SECURITY
 </h2>
 <br>
 <div align="center">
