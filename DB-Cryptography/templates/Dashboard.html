@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách nhân viên</title>
+</head>
+<body>
+    <h2>Danh sách nhân viên</h2>
+    <a href="{{ url_for('add_employee') }}">➕ Thêm mới</a>
+    <table border="1" cellpadding="8">
+        <tr>
+            <th>Họ và tên</th>
+            <th>Ngày sinh</th>
+            <th>Quê quán</th>
+            <th>Số sổ BHXH</th>
+            <th>Hành động</th>
+        </tr>
+        {% for nv in nhanviens %}
+        <tr>
+            <td>{{ nv.hoTen }}</td>
+            <td>{{ nv.ngaySinh }}</td>
+            <td>{{ nv.queQuan }}</td>
+            <td>{{ nv.noBHXH }}</td>
+            <td>
+                <a href="{{ url_for('edit_employee', id=nv.id) }}">✏️ Sửa</a> |
+                <a href="{{ url_for('delete_employee', id=nv.id) }}" onclick="return confirm('Bạn có chắc chắn xóa?');">🗑️ Xóa</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br><a href="{{ url_for('logout') }}">🔒 Đăng xuất</a>
+</body>
+</html>

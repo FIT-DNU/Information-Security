@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ action }} nhân viên</title>
+</head>
+<body>
+    <h2>{{ action }} nhân viên</h2>
+    <form method="post">
+        <label>Họ và tên:</label><br>
+        <input type="text" name="hoTen" value="{{ nv.hoTen if nv else '' }}" required><br><br>
+
+        <label>Ngày sinh:</label><br>
+        <input type="date" name="ngaySinh" value="{{ nv.ngaySinh if nv else '' }}" required><br><br>
+
+        <label>Quê quán:</label><br>
+        <input type="text" name="queQuan" value="{{ nv.queQuan if nv else '' }}" required><br><br>
+
+        <label>Số sổ BHXH:</label><br>
+        <input type="text" name="noBHXH" value="{{ nv.soSoBHXH if nv else '' }}" required><br><br>
+
+        <button type="submit">Lưu</button>
+    </form>
+    <br><a href="{{ url_for('dashboard') }}">⬅️ Quay lại</a>
+</body>
+</html>
