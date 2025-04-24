@@ -34,14 +34,14 @@ pip install pycryptodome
 ```plaintext
 # Máy Sender:
 ├─ sender.py
-├─ sender_private.pem    # sinh tự động
-├─ sender_public.pem     # sinh tự động
+├─ sender_private.pem    # sinh lần đầu khi chạy sender.py
+├─ sender_public.pem     # sinh lần đầu khi chạy sender.py
 └─ email.txt             # file cần gửi
 
 # Máy Receiver:
 ├─ receiver.py
-├─ receiver_private.pem  # sinh tự động
-├─ receiver_public.pem   # sinh tự động
+├─ receiver_private.pem  # sinh lần đầu khi chạy receiver.py
+├─ receiver_public.pem   # sinh lần đầu khi chạy receiver.py
 └─ received_email.txt
 ``` 
 
