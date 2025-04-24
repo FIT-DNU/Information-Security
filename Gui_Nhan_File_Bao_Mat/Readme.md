@@ -80,10 +80,10 @@ sequenceDiagram
 ``` 
 
 ## 🔧 Tuỳ Chỉnh & Mở Rộng
-- Thay **DES** bằng **AES-CBC/GCM** hoặc **3DES**.  
-- Thêm trường **expiration** cho giới hạn thời gian.  
-- Nâng cấp handshake thành **ECDH** hoặc sử dụng **TLS** mẫu.
+Handshake: có thể đơn giản hóa bằng CLI hoặc GUI cơ bản, ví dụ:
+- CLI: người dùng nhấn Enter để gửi "HELLO", bên nhận nhấn Enter để gửi "READY!"
+- GUI: hai nút "Connect" (gửi HELLO) và "Accept" (gửi READY!)
 
 ---
-*© 2025 Đại Nam University | Được phát triển bởi Khoa Công nghệ thông tin*
+*Created by Nguyen Van Nhan*. *© 2025 Đại Nam University | Được phát triển bởi Khoa Công nghệ thông tin*
 
