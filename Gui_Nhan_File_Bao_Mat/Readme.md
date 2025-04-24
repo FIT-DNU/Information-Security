@@ -1,4 +1,4 @@
-# 🚀 Dự án: Mô phỏng Gửi Dữ liệu Bảo Mật
+# 🚀 Ví dụ mẫu cơ bản: Mô phỏng Gửi và Nhận Dữ liệu Bảo Mật
 
 ![Python](https://img.shields.io/badge/python-3.6%2B-blue) ![PyCryptodome](https://img.shields.io/badge/pycryptodome-required-orange)
 
@@ -17,7 +17,7 @@ Hai script Python chạy trên 2 máy riêng biệt:
 ## 📝 Yêu Cầu
 - Python >= 3.6
 - Thư viện **PyCryptodome**
-- Kết nối TCP (cổng mặc định: 65432)
+- Kết nối socket TCP (cổng mặc định: 65432)
 
 ## ⚙️ Cài Đặt
 ```bash
