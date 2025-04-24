@@ -1,4 +1,4 @@
-##Ví dụ mẫu cơ bản: Mô phỏng Gửi và Nhận Dữ liệu Bảo Mật
+## Ví dụ mẫu cơ bản: Mô phỏng Gửi và Nhận Dữ liệu Bảo Mật
 
 1. Mô tả
 
