@@ -13,7 +13,7 @@
         <br><br>
         BẢNG DỮ LIỆU SQL SERVER
         <br><hr>
-        <img src="Tab_Account.png" alt="AIoTLab Logo" width="600"/>
+        <img src="Tab_Account.png" alt="AIoTLab Logo" width="400"/>
         <br><br>
-        <img src="Tab_NhanVien.png" alt="AIoTLab Logo" width="300"/>
+        <img src="Tab_NhanVien.png" alt="AIoTLab Logo" width="400"/>
     </p>
