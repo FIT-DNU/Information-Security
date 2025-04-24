@@ -1,66 +1,89 @@
-## Ví dụ mẫu cơ bản: Mô phỏng Gửi và Nhận Dữ liệu Bảo Mật
+# 🚀 Dự án: Mô phỏng Gửi Dữ liệu Bảo Mật
 
-1. Mô tả
+![Python](https://img.shields.io/badge/python-3.6%2B-blue) ![PyCryptodome](https://img.shields.io/badge/pycryptodome-required-orange)
 
-Dự án gồm hai script Python chạy trên hai máy riêng biệt:
+## 🎯 Mục Tiêu
+- **Minh họa** quy trình bảo mật file qua mạng:  
+  1. Handshake  
+  2. Xác thực & Trao đổi khóa  
+  3. Truyền dữ liệu & Kiểm tra tính toàn vẹn
+- **Thực hành** các khái niệm: Authentication, Confidentiality, Integrity.
 
-sender.py (chạy trên máy Sender)
+## 🔍 Tổng Quan
+Hai script Python chạy trên 2 máy riêng biệt:
+- **sender.py**: Máy Gửi chịu trách nhiệm khởi tạo kết nối, xác thực và mã hóa dữ liệu.  
+- **receiver.py**: Máy Nhận lắng nghe kết nối, giải mã và kiểm tra tính toàn vẹn.
 
-receiver.py (chạy trên máy Receiver)
+## 📝 Yêu Cầu
+- Python >= 3.6
+- Thư viện **PyCryptodome**
+- Kết nối TCP (cổng mặc định: 65432)
 
-Quy trình bảo mật:
-
-Handshake đơn giản: Sender gửi “HELLO”, Receiver trả lời “READY!”.
-
-Xác thực & Trao đổi khóa: RSA để ký metadata và mã hóa SessionKey.
-
-Truyền dữ liệu & Kiểm tra tính toàn vẹn: DES mã hóa file, gửi kèm hash SHA-512; Receiver kiểm tra và giải mã.
-
-Mục tiêu: Minh họa ba khái niệm cơ bản trong bảo mật: Authentication, Confidentiality, Integrity.
-
-2. Yêu cầu
-
-Python 3.6+
-
-Thư viện PyCryptodome
-
-Kết nối TCP qua cổng 65432 từ Sender → Receiver
-
-3. Cài đặt môi trường
-
-# (Tuỳ chọn) Tạo virtual environment
+## ⚙️ Cài Đặt
+```bash
+# 1. Tạo virtual environment (tuỳ chọn)
 python3 -m venv venv
 source venv/bin/activate    # Linux/macOS
 venv\Scripts\activate      # Windows
 
-# Cài thư viện cần thiết
+# 2. Cài đặt thư viện
 pip install pycryptodome
+```
 
-4. Cấu trúc thư mục trên mỗi máy
-
+## 📂 Cấu Trúc Thư Mục
+```plaintext
 # Máy Sender:
-sender.py
-sender_private.pem    # sinh lần đầu khi chạy sender.py
-sender_public.pem     # sinh lần đầu khi chạy sender.py
-email.txt             # file cần gửi
+├─ sender.py
+├─ sender_private.pem    # sinh tự động
+├─ sender_public.pem     # sinh tự động
+└─ email.txt             # file cần gửi
 
 # Máy Receiver:
-receiver.py
-receiver_private.pem  # sinh lần đầu khi chạy receiver.py
-receiver_public.pem   # sinh lần đầu khi chạy receiver.py
+├─ receiver.py
+├─ receiver_private.pem  # sinh tự động
+└─ receiver_public.pem   # sinh tự động
+``` 
 
-5. Cách chạy
+## 🚀 Cách Chạy
+1. **Máy Receiver** (lắng nghe kết nối):
+   ```bash
+   python3 receiver.py
+   ```
+2. **Máy Sender** (gửi dữ liệu, sau khi Receiver sẵn sàng):
+   ```bash
+   python3 sender.py <IP_Receiver>
+   ```
+3. _Theo dõi log in ra_ trên mỗi máy (delay 2s giữa các bước).
 
-Máy Receiver:
+## 📋 Luồng Hoạt Động
+```mermaid
+sequenceDiagram
+  participant S as Sender
+  participant R as Receiver
 
-python3 receiver.py
+  Note over S,R: Bước 1 – Handshake
+  S->>R: HELLO
+  R-->>S: READY!
 
-Tạo RSA keys (nếu chưa có) và lắng nghe cổng 65432.
+  Note over S,R: Bước 2 – Xác thực & Trao đổi khóa
+  R-->>S: PublicKey_R
+  S->>R: E_RSA(SessionKey) + Signature(metadata)
+  Note over S,R: ✔ SessionKey đã chia sẻ
 
-Máy Sender (sau khi Receiver sẵn sàng):
+  Note over S,R: Bước 3 – Truyền dữ liệu & Kiểm tra
+  S->>R: Ciphertext + Hash
+  alt Hash hợp lệ
+    R-->>S: ACK
+  else
+    R-->>S: NACK
+  end
+``` 
 
-python3 sender.py <IP_Receiver>
+## 🔧 Tuỳ Chỉnh & Mở Rộng
+- Thay **DES** bằng **AES-CBC/GCM** hoặc **3DES**.  
+- Thêm trường **expiration** cho giới hạn thời gian.  
+- Nâng cấp handshake thành **ECDH** hoặc sử dụng **TLS** mẫu.
 
-Thay <IP_Receiver> bằng địa chỉ IP của máy Receiver.
+---
+*© 2025 Đại Nam University | Được phát triển bởi Khoa Công nghệ thông tin*
 
-Quan sát log in ra trên mỗi máy, có delay 2s giữa các bước.
