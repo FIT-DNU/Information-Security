@@ -85,5 +85,8 @@ Handshake: có thể đơn giản hóa bằng CLI hoặc GUI cơ bản, ví dụ
 - GUI: hai nút "Connect" (gửi HELLO) và "Accept" (gửi READY!)
 
 ---
-*Created by Nguyen Van Nhan*. *© 2025 Đại Nam University | Được phát triển bởi Khoa Công nghệ thông tin*
+*Created by Nguyen Van Nhan*
+[![AIoTLab](https://img.shields.io/badge/AIoTLab-green?style=for-the-badge)](https://www.facebook.com/DNUAIoTLab)
+[![Faculty of Information Technology](https://img.shields.io/badge/Faculty%20of%20Information%20Technology-blue?style=for-the-badge)](https://dainam.edu.vn/vi/khoa-cong-nghe-thong-tin)
+[![DaiNam University](https://img.shields.io/badge/DaiNam%20University-orange?style=for-the-badge)](https://dainam.edu.vn)
 
