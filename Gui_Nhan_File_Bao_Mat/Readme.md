@@ -41,7 +41,8 @@ pip install pycryptodome
 # Máy Receiver:
 ├─ receiver.py
 ├─ receiver_private.pem  # sinh tự động
-└─ receiver_public.pem   # sinh tự động
+├─ receiver_public.pem   # sinh tự động
+└─ received_email.txt
 ``` 
 
 ## 🚀 Cách Chạy
