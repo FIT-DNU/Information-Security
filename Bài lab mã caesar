@@ -1,0 +1,59 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+// Hàm mã hóa Caesar Cipher
+string encrypt(string text, int s) {
+    string result = "";
+    for (int i = 0; i < text.length(); i++) {
+        if (isupper(text[i]))
+            result += char((text[i] - 'A' + s) % 26 + 'A');
+        else if (islower(text[i]))
+            result += char((text[i] - 'a' + s) % 26 + 'a');
+        else
+            result += text[i]; // giữ nguyên nếu không phải chữ cái
+    }
+    return result;
+}
+
+// Hàm giải mã Caesar Cipher
+string decrypt(string text, int s) {
+    return encrypt(text, 26 - (s % 26)); // giải mã là mã hóa ngược
+}
+
+int main() {
+    string text;
+    int k;
+
+    // Đọc dữ liệu từ file input.txt
+    ifstream inFile("input.txt");
+    if (!inFile) {
+        cerr << "Khong the mo file input.txt";
+        return 1;
+    }
+    // Đọc toàn bộ nội dung file
+    getline(inFile, text, '\0');
+    inFile.close();
+
+    // Nhập khóa từ bàn phím
+    cout << "Nhap khoa (k): ";
+    cin >> k;
+
+    // Mã hóa và ghi vào file data.enc
+    string cipher = encrypt(text, k);
+    ofstream encFile("data.enc");
+    encFile << cipher;
+    encFile.close();
+
+    // Giải mã và ghi vào file onput.txt
+    string plain = decrypt(cipher, k);
+    ofstream outFile("onput.txt");
+    outFile << plain;
+    outFile.close();
+
+    cout << "Ma hoa va giai ma hoan tat!\n";
+    cout << "Ma da ma hoa: " << cipher << endl;
+cout << "Ma goc: " << plain << endl;
+
+    return 0;
+}
