@@ -30,8 +30,8 @@ int main()
 
     // Finding other part of public key.
     // e stands for encrypt
-    double e = 2;
     double phi = (p - 1) * (q - 1);
+    double e = 2;
     while (e < phi) {
         // e must be co-prime to phi and
         // smaller than phi.
