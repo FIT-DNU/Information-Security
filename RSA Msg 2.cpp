@@ -106,7 +106,7 @@ int main()
 {
     primefiller();
     setkeys();
-    string message = "Test Message";
+    string message = "KHOA CNTT";
     // uncomment below for manual input
     // cout<<"enter the message\n";getline(cin,message);
     // calling the encoding function
